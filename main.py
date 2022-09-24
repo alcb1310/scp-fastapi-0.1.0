@@ -1,5 +1,7 @@
-import imp
 from fastapi import FastAPI
+
+from src.routes import home
+
 
 app = FastAPI(
     title="SCP",
@@ -7,9 +9,5 @@ app = FastAPI(
     description="Budgeting application focused on construction companies"
 )
 
-@app.get("/")
-def home():
-    return {
-        "message": "Hello World!"
-    }
+app.include_router(home.app)
 
