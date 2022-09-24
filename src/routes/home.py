@@ -3,7 +3,10 @@ from sqlalchemy.orm import Session
 from ..database import get_db
 from .. import models
 
-app = APIRouter()
+app = APIRouter(
+    prefix="/api/v1.0",
+    tags=["Home"]
+)
 
 @app.get("/")
 def home(db: Session=Depends(get_db)):
